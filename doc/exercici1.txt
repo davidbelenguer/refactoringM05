@@ -1,0 +1,31 @@
+************************************************************************************
+Exercici 1. El meu exemple
+Descriu un exemple de canvi de codi teu que es pugui considerar refacció i un 
+altre que no. Pots fer servir codi de qualsevol dels teus exercicis del cicle 
+(especifica la procedència). No oblidis descriure el perquè de la teva classificació 
+basant-te en els conceptes d’aquesta secció.
+************************************************************************************
+// codigo 1 -> sin refactoring
+void imprimeFactura() {
+    imprimeEncabezado();
+    //imprime los detalles 
+    System.out.println ("Nombre:        " +  nombre );
+    System.out.println ("Cantidad       " + getCantidad());
+}
+
+// codigo 2 -> con refactoring
+void imprimeFactura() {
+    imprimeEncabezado();
+    imprimeDetalles(getCantidad());
+}
+void imprimeDetalles (double cantidad) {
+    System.out.println ("Nombre:        " +  nombre );
+    System.out.println ("Cantidad       " + cantidad );  // corregido
+}
+
+Explicación: En el primer ejemplo podemos observar que el codigo no esta refactoring, ya que no
+es muy facil de entender ni de modificar y el claro ejemplo que se puede observar que no se puede
+reutilizar el codigo, en cambio en el segundo codigo podemos observar que hemos metido en una 
+funcion todo lo que antes estaba suelto, y ahora lo podemos llamar tanto dentro de la clase como
+en otra clase, es decir, estamos reutilizando el mismo codigo para poderlo utilizar en un programa
+que hagamos en un futuro.
