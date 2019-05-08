@@ -1,4 +1,4 @@
-import java.text.DateFormat;
+
 import java.util.Date;
 import java.util.Vector;
 
@@ -39,7 +39,6 @@ public class Lloguer {
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicles = vehicles;
 	}
-	
 	
 	
 	

@@ -5,9 +5,9 @@ public class Vehicle {
 	private String marca;
 	private String categoria;
 	
-	public static final String Basic = null;
-	public static final String Mitja = null;
-	public static final String Alt = null;
+	public static final String Basic = "basic";
+	public static final String Mitja = "mitja";
+	public static final String Alt = "alt";
 	
 	public Vehicle(String model, String marca, String categoria) {
 		this.model = model;
@@ -38,7 +38,6 @@ public class Vehicle {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
-	
 	
 	
 	

@@ -3,6 +3,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
 public class GestorLloguersLite {
 
 	public static void main(String[] args) throws ParseException {
@@ -34,9 +35,12 @@ public class GestorLloguersLite {
 		System.out.println(dateFormat.format(lloguerAlt.getData()));
 		
 		//mostrar datos
-		System.out.println(client1.toString());
+		//System.out.println(client1.mostrarDatos());
+		
 		
 	}
+
+	
 
 	
 
