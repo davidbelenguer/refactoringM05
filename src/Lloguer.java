@@ -5,17 +5,16 @@ import java.util.Vector;
 public class Lloguer {
 	private Date data;
 	private int dies;
-	private Vector<Vehicle> vehicles;
+	private Vehicle vehicle;
 	
-	public Lloguer(Date date, int dies, Vehicle vehicles) {
+	public Lloguer(Date date, int dies, Vehicle vehicle) {
 		super();
 		this.data = date;
 		this.dies = dies;
-		this.vehicles = new Vector<Vehicle>();
+		this.vehicle = vehicle;
 	}
 
 	
-
 	public Date getData() {
 		return data;
 	}
@@ -33,11 +32,11 @@ public class Lloguer {
 	}
 
 	public Vehicle getVehicle() {
-		return getVehicle();
+		return vehicle;
 	}
 
 	public void setVehicle(Vehicle vehicle) {
-		this.vehicles = vehicles;
+		this.vehicle = vehicle;
 	}
 	
 	

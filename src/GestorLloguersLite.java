@@ -36,7 +36,7 @@ public class GestorLloguersLite {
 		
 		//mostrar datos
 		//System.out.println(client1.mostrarDatos());
-		
+		System.out.println(client1.informe());
 		
 	}
 
