@@ -4,7 +4,7 @@ public class Client {
 	private String nif;
 	private String nom;
 	private String telefon;
-	private Vector<Lloguer> lloguers;
+	private static Vector<Lloguer> lloguers;
 	
 	public Client(String nif, String nom, String telefon) {
 		super();
@@ -33,7 +33,7 @@ public class Client {
     public void setTelefon(String telefon) {
         this.telefon = telefon;
     }
-    public void afegeix(Lloguer lloguer) {
+    public static void afegeix(Lloguer lloguer) {
     	if (!lloguers.contains(lloguer)) {
     		lloguers.add(lloguer);
     	}
@@ -51,4 +51,12 @@ public class Client {
         // XXX: de moment buit
         return null;
     }
+
+	@Override
+	public String toString() {
+		return "Client [nif=" + nif + ", nom=" + nom + ", telefon=" + telefon + ", lloguers=" + lloguers + "]";
+	}
+    
+    
+    
 }
