@@ -29,7 +29,7 @@ public class GestorLloguersLite {
 		Lloguer lloguerAlt = new Lloguer(date3, 4, vehicleAlt);
 		Client.afegeix(lloguerAlt);
 		
-		// 
+		// demostració de formatat d'una data
 		System.out.println(dateFormat.format(lloguerBasic.getData()));
 		System.out.println(dateFormat.format(lloguerMitja.getData()));
 		System.out.println(dateFormat.format(lloguerAlt.getData()));
