@@ -7,6 +7,7 @@ import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
+
 public class TestProves {
 	
 	private Client client;
@@ -14,17 +15,33 @@ public class TestProves {
 	private Vehicle mitja;
 	private Vehicle alt;
 	private Lloguer lloguer;
-	/*private String textOriginal = "Informe de lloguers del client David (123456789A)\n"+
-			"	Renault Clio: 90.0€\n"+
-			"	Audi A3: 495.0€\n"+
-			"	Porsche Panamera: 720.0€\n"+
-		"Import a pagar: 1305.0€\n"+
-		"Punts guanyats: 4\n";*/
+	
 	private String textOriginal = "Informe de lloguers del client David (123456789A)\n" + 
 			"	Renault Clio: 90.0€\n" + 
 			"	Audi A3: 495.0€\n" + 
 			"	Porsche  Panamera: 720.0€\n" + 
 			"Import a pagar: 1305.0€\n" + 
+			"Punts guanyats: 4\n";
+	
+	private String textBuit = "Informe de lloguers del client David (123456789A)\n" + 
+			"Import a pagar: 0.0€\n" + 
+			"Punts guanyats: 0\n";
+	
+	private String textUn = "Informe de lloguers del client David (123456789A)\n" + 
+			"	Renault Clio: 90.0€\n" +  
+			"Import a pagar: 90.0€\n" + 
+			"Punts guanyats: 1\n";
+	
+	private String textGeneralUnDia = "Informe de lloguers del client David (123456789A)\n" + 
+			"	Renault Clio: 90.0€\n" +  
+			"Import a pagar: 90.0€\n" + 
+			"Punts guanyats: 1\n";
+	
+	private String textLloguerTotal = "Informe de lloguers del client David (123456789A)\n" + 
+			"	Renault Clio: 630.0€\n" + 
+			"	Audi A3: 3720.0€\n" + 
+			"	Porsche  Panamera: 18000.0€\n" + 
+			"Import a pagar: 22350.0€\n" + 
 			"Punts guanyats: 4\n";
 	SimpleDateFormat dateFormat = new SimpleDateFormat("d/M/yyyy");
 	
@@ -52,17 +69,57 @@ public class TestProves {
 		assertEquals(textOriginal, client.informe());
 	}
 	
-	/*@Test
-	public void testMitja() throws ParseException {
+	@Test
+	public void testBuit() throws ParseException {
+		Date fecha = dateFormat.parse("8/09/2014");
+		lloguer = new Lloguer(fecha, 2, basic);
 		
-		assertEquals(textOriginal,client.informe ());
+		Date fecha2 = dateFormat.parse("4/02/2010");
+		lloguer = new Lloguer(fecha2, 7, mitja);
+		
+		Date fecha3 = dateFormat.parse("19/12/2018"); 
+		lloguer = new Lloguer(fecha3, 4, alt);
+		
+		System.out.println("textOriginalX abans de l'assert");
+		assertEquals(textBuit, client.informe());
+	}
+	@Test
+	public void testUnDosDies() throws ParseException {
+		Date fecha = dateFormat.parse("8/09/2014");
+		lloguer = new Lloguer(fecha, 2, basic);
+		client.afegeix(lloguer);
+		
+		System.out.println("textOriginalX abans de l'assert");
+		assertEquals(textUn, client.informe());
+	}
+	@Test
+	public void testGeneralUnDia() throws ParseException {
+		Date fecha = dateFormat.parse("8/09/2014");
+		lloguer = new Lloguer(fecha, 1, basic);
+		client.afegeix(lloguer);
+		
+		System.out.println("textOriginalX abans de l'assert");
+		assertEquals(textGeneralUnDia, client.informe());
+	}
+	@Test
+	public void testLloguerTotal() throws ParseException {
+		Date fecha = dateFormat.parse("8/09/2014");
+		lloguer = new Lloguer(fecha, 15, basic);
+		client.afegeix(lloguer);
+		Date fecha2 = dateFormat.parse("4/02/2010");
+		lloguer = new Lloguer(fecha2, 50, mitja);
+		client.afegeix(lloguer);
+		Date fecha3 = dateFormat.parse("19/12/2018"); 
+		lloguer = new Lloguer(fecha3, 100, alt);
+		client.afegeix(lloguer);
+		System.out.println("textOriginalX abans de l'assert");
+		assertEquals(textLloguerTotal, client.informe());
 	}
 	
-	@Test
-	public void testAlt() throws ParseException {
-		
-		assertEquals(textOriginal, client.informe ());
-	}*/
+	
+	
+	
+	
 	
 	
 	/*public void Clientinforme() {
