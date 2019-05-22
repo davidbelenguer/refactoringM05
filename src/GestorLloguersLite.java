@@ -11,9 +11,10 @@ public class GestorLloguersLite {
 		Client client1 = new Client("123456789A", "David", "666666666");
 		
 		//creamos los tres vehiculos
-		Vehicle vehicleBasic = new Vehicle("Tata", "Vista", Vehicle.Basic);
-		Vehicle vehicleMitja = new Vehicle("C4", "Citroen", Vehicle.Mitja);
-		Vehicle vehicleAlt = new Vehicle("Q5", "Audi", Vehicle.Alt);
+		Vehicle vehicleBasic = new Vehicle("Clio", "Renault", Vehicle.Basic);
+		Vehicle vehicleMitja = new Vehicle("A3", "Audi", Vehicle.Mitja);
+		Vehicle vehicleAlt = new Vehicle("Panamera", "Porsche", Vehicle.Alt);
+		
 		
 		//creamos tres alquileres
 		SimpleDateFormat dateFormat = new SimpleDateFormat("d/M/yyyy");

@@ -95,6 +95,7 @@ public class Client {
         // afegeix informació final
         resultat += "Import a pagar: " + total + "€\n" +
             "Punts guanyats: " + bonificacions + "\n";
+        System.out.println("XXX informe retorna " + resultat);
         return resultat;
     }
 
