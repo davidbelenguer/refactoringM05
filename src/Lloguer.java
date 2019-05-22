@@ -39,7 +39,27 @@ public class Lloguer {
 		this.vehicle = vehicle;
 	}
 	
-	
+	public double quantitat() {
+		double quantitat = 0;
+		switch (getVehicle().getCategoria()) {
+		case Vehicle.Basic:
+			quantitat += 3;
+			if (getDies() > 3) {
+				quantitat += (getDies() - 3) * 1.5;
+			}
+			break;
+		case Vehicle.Mitja:
+			quantitat += 4;
+			if (getDies() > 2) {
+				quantitat += (getDies() - 2) * 2.5;
+			}
+			break;
+		case Vehicle.Alt:
+			quantitat += getDies() * 6;
+			break;
+		}
+		return quantitat;
+	}
 	
 
 }

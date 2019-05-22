@@ -60,8 +60,6 @@ public class Client {
 		int bonificacions = 0;
 		String resultat = "Informe de lloguers del client " + getNom() + " (" + getNif() + ")\n";
 		for (Lloguer lloguer : lloguers) {
-			double quantitat = quantitatPerLloguer(lloguer);
-
 			// afegeix lloguers freqüents
 			bonificacions++;
 
@@ -72,8 +70,8 @@ public class Client {
 
 			// composa els resultats d'aquest lloguer
 			resultat += "\t" + lloguer.getVehicle().getMarca() + " " + lloguer.getVehicle().getModel() + ": "
-					+ (quantitat * 30) + "€" + "\n";
-			total += quantitat * 30;
+					+ (lloguer.quantitat() * 30) + "€" + "\n";
+			total += lloguer.quantitat() * 30;
 		}
 
 		// afegeix informació final
@@ -83,26 +81,10 @@ public class Client {
 
 	}
 
-	private double quantitatPerLloguer(Lloguer lloguer) {
-		double quantitat = 0;
-		switch (lloguer.getVehicle().getCategoria()) {
-		case Vehicle.Basic:
-			quantitat += 3;
-			if (lloguer.getDies() > 3) {
-				quantitat += (lloguer.getDies() - 3) * 1.5;
-			}
-			break;
-		case Vehicle.Mitja:
-			quantitat += 4;
-			if (lloguer.getDies() > 2) {
-				quantitat += (lloguer.getDies() - 2) * 2.5;
-			}
-			break;
-		case Vehicle.Alt:
-			quantitat += lloguer.getDies() * 6;
-			break;
-		}
-		return quantitat;
-	}
+	
+
+	
+
+	
 
 }
