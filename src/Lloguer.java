@@ -6,6 +6,13 @@ public class Lloguer {
 	private Date data;
 	private int dies;
 	private Vehicle vehicle;
+	private static final double EUROS_PER_UNITAT_DE_COST_BASIC = 3;
+	private static final double DIES_INICI_VEHI_BASIC = 3;
+	private static final double EUROS_PER_DIES_INICI_BASIC = 1.5;
+	private static final double EUROS_PER_UNITAT_DE_COST_MITJA = 4;
+	private static final double DIES_INICI_VEHICLE_MITJA = 2;
+	private static final double EUROS_PER_DIES_INICI_MITJA = 2.5;
+	private static final double EUROS_PER_DIES_VEHICLE_ALT = 6;
 	
 	public Lloguer(Date date, int dies, Vehicle vehicle) {
 		super();
@@ -43,19 +50,19 @@ public class Lloguer {
 		double quantitat = 0;
 		switch (getVehicle().getCategoria()) {
 		case Vehicle.Basic:
-			quantitat += 3;
-			if (getDies() > 3) {
-				quantitat += (getDies() - 3) * 1.5;
+			quantitat += EUROS_PER_UNITAT_DE_COST_BASIC;
+			if (getDies() > DIES_INICI_VEHI_BASIC) {
+				quantitat += (getDies() - 3) * EUROS_PER_DIES_INICI_BASIC;
 			}
 			break;
 		case Vehicle.Mitja:
-			quantitat += 4;
-			if (getDies() > 2) {
-				quantitat += (getDies() - 2) * 2.5;
+			quantitat += EUROS_PER_UNITAT_DE_COST_MITJA;
+			if (getDies() > DIES_INICI_VEHICLE_MITJA) {
+				quantitat += (getDies() - 2) * EUROS_PER_DIES_INICI_MITJA;
 			}
 			break;
 		case Vehicle.Alt:
-			quantitat += getDies() * 6;
+			quantitat += getDies() * EUROS_PER_DIES_VEHICLE_ALT;
 			break;
 		}
 		return quantitat;
