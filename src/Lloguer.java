@@ -62,6 +62,17 @@ public class Lloguer {
 	}
 	
 	
-	
+	public int bonificacions() {
+		int bonificacions = 0;
+		// afegeix lloguers freqüents
+		bonificacions++;
+		// afegeix bonificació per dos dies de lloguer de Luxe
+		if (getVehicle().getCategoria() == Vehicle.Alt && 
+				getDies() > 1) {
+			bonificacions++;
+		}
+		return bonificacions;
+
+	}
 
 }

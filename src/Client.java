@@ -60,7 +60,7 @@ public class Client {
 		int bonificacions = 0;
 		String resultat = "Informe de lloguers del client " + getNom() + " (" + getNif() + ")\n";
 		for (Lloguer lloguer : lloguers) {
-			bonificacions += bonificacionsDeLloguer(lloguer);
+			bonificacions += lloguer.bonificacions();
 
 			// composa els resultats d'aquest lloguer
 			resultat += "\t" + lloguer.getVehicle().getMarca() + " " + lloguer.getVehicle().getModel() + ": "
@@ -74,17 +74,7 @@ public class Client {
 
 	}
 	
-	public int bonificacionsDeLloguer(Lloguer lloguer) {
-		int bonificacions = 0;
-		// afegeix lloguers freqüents
-		bonificacions++;
-		// afegeix bonificació per dos dies de lloguer de Luxe
-		if (lloguer.getVehicle().getCategoria() == Vehicle.Alt && lloguer.getDies() > 1) {
-			bonificacions++;
-		}
-		return bonificacions;
-
-	}
+	
 
 	
 	
