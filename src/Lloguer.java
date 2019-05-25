@@ -46,26 +46,26 @@ public class Lloguer {
 		this.vehicle = vehicle;
 	}
 	
-	public double quantitat() {
-		double quantitat = 0;
+	public double preu() {
+		double preu = 0;
 		switch (getVehicle().getCategoria()) {
 		case Vehicle.Basic:
-			quantitat += EUROS_PER_UNITAT_DE_COST_BASIC;
+			preu += EUROS_PER_UNITAT_DE_COST_BASIC;
 			if (getDies() > DIES_INICI_VEHI_BASIC) {
-				quantitat += (getDies() - 3) * EUROS_PER_DIES_INICI_BASIC;
+				preu += (getDies() - 3) * EUROS_PER_DIES_INICI_BASIC;
 			}
 			break;
 		case Vehicle.Mitja:
-			quantitat += EUROS_PER_UNITAT_DE_COST_MITJA;
+			preu += EUROS_PER_UNITAT_DE_COST_MITJA;
 			if (getDies() > DIES_INICI_VEHICLE_MITJA) {
-				quantitat += (getDies() - 2) * EUROS_PER_DIES_INICI_MITJA;
+				preu += (getDies() - 2) * EUROS_PER_DIES_INICI_MITJA;
 			}
 			break;
 		case Vehicle.Alt:
-			quantitat += getDies() * EUROS_PER_DIES_VEHICLE_ALT;
+			preu += getDies() * EUROS_PER_DIES_VEHICLE_ALT;
 			break;
 		}
-		return quantitat;
+		return preu;
 	}
 	
 	
