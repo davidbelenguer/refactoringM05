@@ -43,6 +43,17 @@ public class TestProves {
 			"	Porsche  Panamera: 18000.0€\n" + 
 			"Import a pagar: 22350.0€\n" + 
 			"Punts guanyats: 4\n";
+	
+	private String textOriginalHTML = "<h1>Informe de lloguers</h1>\n" + 
+			"<p>Informe de lloguers del client <em>David </em> (<strong>123456789A</strong>)</p>\n" + 
+			"<table>\n" + 
+			"<tr><td><strong>Marca</strong></td><td><strong>Model</strong></td><td><strong>Import</strong></td></tr>	<tr><td>Renault</td><td>Clio</td><td>90.0€</td></tr>\n"+
+			"    <tr><td>Audi</td><td>A3</td><td>495.0€</td></tr>\n" + 
+			"    <tr><td>Porsche</td><td>Panamera</td><td>720.0€</td></tr>\n" + 
+			"</table>\n" + 
+			"<p>Import a pagar: <em>1305.0€</em></p>\n" + 
+			"<p>Punts guanyats: <em>4</em></p>";
+	
 	SimpleDateFormat dateFormat = new SimpleDateFormat("d/M/yyyy");
 	
 	
@@ -65,7 +76,7 @@ public class TestProves {
 		Date fecha3 = dateFormat.parse("19/12/2018"); 
 		lloguer = new Lloguer(fecha3, 4, alt);
 		client.afegeix(lloguer);
-		System.out.println("textOriginalX abans de l'assert");
+		
 		assertEquals(textOriginal, client.informe());
 	}
 	
@@ -80,7 +91,6 @@ public class TestProves {
 		Date fecha3 = dateFormat.parse("19/12/2018"); 
 		lloguer = new Lloguer(fecha3, 4, alt);
 		
-		System.out.println("textOriginalX abans de l'assert");
 		assertEquals(textBuit, client.informe());
 	}
 	@Test
@@ -89,7 +99,6 @@ public class TestProves {
 		lloguer = new Lloguer(fecha, 2, basic);
 		client.afegeix(lloguer);
 		
-		System.out.println("textOriginalX abans de l'assert");
 		assertEquals(textUn, client.informe());
 	}
 	@Test
@@ -98,7 +107,6 @@ public class TestProves {
 		lloguer = new Lloguer(fecha, 1, basic);
 		client.afegeix(lloguer);
 		
-		System.out.println("textOriginalX abans de l'assert");
 		assertEquals(textGeneralUnDia, client.informe());
 	}
 	@Test
@@ -112,8 +120,27 @@ public class TestProves {
 		Date fecha3 = dateFormat.parse("19/12/2018"); 
 		lloguer = new Lloguer(fecha3, 100, alt);
 		client.afegeix(lloguer);
-		System.out.println("textOriginalX abans de l'assert");
+		
 		assertEquals(textLloguerTotal, client.informe());
+	}
+	
+	/**
+	 * PROVES UNITARIES INFORME HTML
+	 * 
+	 */
+	@Test
+	public void testOriginalHTML() throws ParseException {
+		Date fecha = dateFormat.parse("8/09/2014");
+		lloguer = new Lloguer(fecha, 2, basic);
+		client.afegeix(lloguer);
+		Date fecha2 = dateFormat.parse("4/02/2010");
+		lloguer = new Lloguer(fecha2, 7, mitja);
+		client.afegeix(lloguer);
+		Date fecha3 = dateFormat.parse("19/12/2018"); 
+		lloguer = new Lloguer(fecha3, 4, alt);
+		client.afegeix(lloguer);
+		
+		assertEquals(textOriginalHTML, client.informeHTML());
 	}
 	
 	
@@ -122,26 +149,4 @@ public class TestProves {
 	
 	
 	
-	/*public void Clientinforme() {
-		Client client1 = new Client("14789547B", "david", "666888774");
-		
-				
-		double total = 14;
-		int bonificacions = 5;
-		double quantitat = 7;
-		
-		client1.setNom("David");
-		client1.getNom();
-		client1.getNif();
-		
-		String result = "";
-		String resultado = client1.informe();
-		quantitat +=3;
-		bonificacions +=10;
-		total += 14;
-		assertEquals(result,resultado);
-		
-		
-	}*/
-
 }
